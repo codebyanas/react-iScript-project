@@ -1,0 +1,16 @@
+.btn-color {
+    background-color: #0A7EA7;
+    color: white;
+    border-radius: 0%;
+    font-size: medium;
+}
+
+textarea::placeholder {
+    color: #6c757d; /* Default placeholder color */
+}
+
+.dark-mode textarea::placeholder {
+    color: #a6a6a6; /* Placeholder color in dark mode */
+}
+
+  

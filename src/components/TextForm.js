@@ -17,6 +17,10 @@ export default function TextForm(props) {
         setText(text.toLowerCase())
     }
 
+    const extraSpacingButton = () => {
+        setText(text.split(/[ ]+/).join(' '))
+    }
+
     const capitalizeButton = () => {
         setText(text
             .split(' ')
@@ -35,27 +39,28 @@ export default function TextForm(props) {
 
     return (
         <>
-            <div>
-                <h3 className="my-4">{props.heading}</h3>
+            <div className="container">
+                <h3 className="my-4" style={{ color: props.mode === 'dark' ? 'white' : 'black' }}>{props.heading}</h3>
                 <div className="mb-3">
-                    <textarea value={text} onChange={handleOnChange} className="form-control" id="exampleFormControlTextarea1" rows="8" placeholder="Enter your text here"></textarea>
+                    <textarea style={{ backgroundColor: props.mode === 'light' ? 'white' : '#212529', color: props.mode === 'dark' ? 'white' : 'black' }} value={text} onChange={handleOnChange} className="form-control" id="exampleFormControlTextarea1" rows="8" placeholder="Enter your text here"></textarea>
                 </div>
-                <button onClick={upperCaseButton} type="button" className="btn btn-light btn-sm mx-2">Convert to UpperCase</button>
-                <button onClick={lowerCaseButton} type="button" className="btn btn-light btn-sm mx-2">Convert to LowerCase</button>
-                <button onClick={capitalizeButton} type="button" className="btn btn-light btn-sm mx-2">Capitalized First Letter</button>
-                <button onClick={copyButton} type="button" className="btn btn-light btn-sm mx-2">Copy to clipboard</button>
-                <button onClick={clearButton} type="button" className="btn btn-light btn-sm mx-2">Clear</button>
+                <button onClick={upperCaseButton} type="button" className="btn btn-light btn-sm mx-2 btn-color">Convert to UpperCase</button>
+                <button onClick={lowerCaseButton} type="button" className="btn btn-light btn-sm mx-2 btn-color">Convert to LowerCase</button>
+                <button onClick={capitalizeButton} type="button" className="btn btn-light btn-sm mx-2 btn-color">Capitalized First Letter</button>
+                <button onClick={extraSpacingButton} type="button" className="btn btn-light btn-sm mx-2 btn-color">Remove Extra Spacing</button>
+                <button onClick={copyButton} type="button" className="btn btn-light btn-sm mx-2 btn-color">Copy to clipboard</button>
+                <button onClick={clearButton} type="button" className="btn btn-light btn-sm mx-2 btn-color">Clear</button>
             </div>
 
-            <div className="my-4">
+            <div className="container my-4" style={{ color: props.mode === 'dark' ? 'white' : 'black' }}>
                 <h3>Your text summary</h3>
                 <p className="my-2">{read} words and {text.length} characters</p>
                 <p>Estimated reading time: {0.08 * read}</p>
             </div>
 
-            <div>
+            <div className="container" style={{ color: props.mode === 'dark' ? 'white' : 'black' }}>
                 <h3>Preview</h3>
-                <p>{text}</p>
+                <p>{text.length > 0 ? text : 'Enter your text in textbox to preview it here'}</p>
             </div>
         </>
     )
