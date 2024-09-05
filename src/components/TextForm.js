@@ -1,8 +1,10 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 
 export default function TextForm(props) {
     const [text, setText] = useState('')
+    const [copy, setCopy] = useState('Copy to Clipboard')
+    const [copyDisabled, setcopyDisabled] = useState(false)
     const read = text.split(/\s+/).filter((word) => word.length > 0).length
 
     const handleOnChange = (e) => {
@@ -31,7 +33,16 @@ export default function TextForm(props) {
     const copyButton = () => {
         navigator.clipboard.writeText(text)
         setText(text)
+        setCopy('Copied')
+        setcopyDisabled(true)
     }
+
+    useEffect(() => {
+        if (text) {
+            setCopy('Copy to Clipboard')
+            setcopyDisabled(false)
+        }
+    }, [text])
 
     const clearButton = () => {
         setText('')
@@ -48,8 +59,8 @@ export default function TextForm(props) {
                 <button onClick={lowerCaseButton} type="button" className="btn btn-light btn-sm mx-2 btn-color">Convert to LowerCase</button>
                 <button onClick={capitalizeButton} type="button" className="btn btn-light btn-sm mx-2 btn-color">Capitalized First Letter</button>
                 <button onClick={extraSpacingButton} type="button" className="btn btn-light btn-sm mx-2 btn-color">Remove Extra Spacing</button>
-                <button onClick={copyButton} type="button" className="btn btn-light btn-sm mx-2 btn-color">Copy to clipboard</button>
                 <button onClick={clearButton} type="button" className="btn btn-light btn-sm mx-2 btn-color">Clear</button>
+                <button onClick={copyButton} type="button" className="btn btn-light btn-sm mx-2 btn-color" disabled={copyDisabled}>{copy}</button>
             </div>
 
             <div className="container my-4" style={{ color: props.mode === 'dark' ? 'white' : 'black' }}>
