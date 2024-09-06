@@ -4,4 +4,8 @@
     font-size: medium;
 }
 
+.about-button {
+    background-color: var(--bs-accordion-active-bg);
+}
+
   

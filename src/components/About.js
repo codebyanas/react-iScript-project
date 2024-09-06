@@ -9,7 +9,7 @@ export default function About(props) {
                 <div className="accordion my-4" id="accordionExample">
                     <div className="accordion-item">
                         <h2 className="accordion-header" >
-                            <button className="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            <button className="accordion-button about-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                                 <strong>Our Journey</strong>
                             </button>
                         </h2>
@@ -20,12 +20,12 @@ export default function About(props) {
                         </div>
                     </div>
                     <div className="accordion-item">
-                        <h2 className="accordion-header">
-                            <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        <h2 className="accordion-header about-button">
+                            <button className="accordion-button collapsed about-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                                 <strong>Our Expertise</strong>
                             </button>
                         </h2>
-                        <div id="collapseTwo" className="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                        <div id="collapseTwo" className="accordion-collapse collapse about-button" data-bs-parent="#accordionExample">
                             <div className="accordion-body" style={{ backgroundColor: props.mode === 'light' ? 'white' : '#212529', color: props.mode === 'dark' ? 'white' : 'black' }}>
                                 <p>As full-stack developers, we have extensive experience in both client-side and server-side development. On the front end, we utilize modern frameworks such as React, Angular, and Vue.js to create intuitive and engaging user interfaces. We understand that a great user experience is critical to the success of any application, and we take pride in crafting responsive, accessible, and visually appealing designs.</p>
 
@@ -34,12 +34,12 @@ export default function About(props) {
                         </div>
                     </div>
                     <div className="accordion-item">
-                        <h2 className="accordion-header">
-                            <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        <h2 className="accordion-header about-button">
+                            <button className="accordion-button collapsed about-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                                 <strong>Join Us</strong>
                             </button>
                         </h2>
-                        <div id="collapseThree" className="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                        <div id="collapseThree" className="accordion-collapse collapse about-button" data-bs-parent="#accordionExample">
                             <div className="accordion-body" style={{ backgroundColor: props.mode === 'light' ? 'white' : '#212529', color: props.mode === 'dark' ? 'white' : 'black' }}>
                                 <p>We are excited about the future of technology and the possibilities it holds. As we continue to grow and evolve, we remain dedicated to pushing the boundaries of what is possible in web development. Whether you are a startup looking to build your first application or an established business seeking to enhance your online presence, we are here to help you navigate the ever-changing digital landscape.</p>
 
